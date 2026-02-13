@@ -1,0 +1,5 @@
+class NomClasse extends:
+Widget statique: ETAT(STATE) StateLessWidget:
+1 ETAT  => stl
+Widget dynamqiue: StateFulWidget: => stf 
+    - N Etat: Contenu au moins UN ATTRIBUT
