@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:projet/projet_e_commerce/pages/favori.dart';
+import 'package:projet/projet_e_commerce/pages/home_page.dart';
+import 'package:projet/projet_e_commerce/pages/page_user.dart';
+import 'package:projet/projet_e_commerce/pages/panier.dart';
+import 'package:projet/projet_e_commerce/pages/produit_list.dart';
 
 class BarreNavigationScreen extends StatefulWidget {
   const BarreNavigationScreen({super.key});
@@ -9,6 +14,13 @@ class BarreNavigationScreen extends StatefulWidget {
 
 class _BarreNavigationScreenState extends State<BarreNavigationScreen> {
   int clickedIndex = 0;
+  List<Widget> mesPages = [
+    HomePage(),
+    ListProduitPage(),
+    PanierPage(),
+    FavoritePage(),
+    UserInfoPage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +51,7 @@ class _BarreNavigationScreenState extends State<BarreNavigationScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.face), label: "Profil"),
         ],
       ),
-      body: Text("TO DO ..."),
+      body: mesPages[clickedIndex],
     );
   }
 }
