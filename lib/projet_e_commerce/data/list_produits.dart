@@ -2,7 +2,8 @@
 import 'package:projet/projet_e_commerce/model/class_produit.dart';
 
 class AllProductData {
-  final List<Produit> _produits = [
+
+  static List<Produit> _produits = [
     Produit(
       id: 'Samsung1',
       title: 'Samsung Galaxy S9',
@@ -583,7 +584,7 @@ class AllProductData {
     ),
   ];
 
-  List<Produit> get Produits {
+  static List<Produit> get Produits {
     return _produits;
   }
 }
