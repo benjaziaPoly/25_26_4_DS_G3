@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:projet/projet_e_commerce/data/list_produits.dart';
 import 'package:projet/projet_e_commerce/model/class_produit.dart';
 
+/**
+ * Corriger le CR
+ * Finaliser le menu
+ * Presenter le pricnipe StateManager
+ */
 class ProduitDetailPage extends StatefulWidget {
-  Produit produit = Produit(
-    id: "",
-    title: "",
-    description: "",
-    price: 0.0,
-    imageUrl: "",
-    brand: "",
-    produitCategoryName: "",
-    quantity: 0,
-  );
+  // Produit produit = Produit(
+  //   id: "",
+  //   title: "",
+  //   description: "",
+  //   price: 0.0,
+  //   imageUrl: "",
+  //   brand: "",
+  //   produitCategoryName: "",
+  //   quantity: 0,
+  // );
 
-  ProduitDetailPage({super.key, required this.produit});
+  ProduitDetailPage({
+    super.key,
+    //required this.produit
+  });
 
   @override
   State<ProduitDetailPage> createState() => _MyWidgetState();
@@ -22,7 +31,17 @@ class ProduitDetailPage extends StatefulWidget {
 class _MyWidgetState extends State<ProduitDetailPage> {
   @override
   Widget build(BuildContext context) {
-    Produit productInfo = widget.produit;
+    final dynamic param = ModalRoute.of(context)!.settings.arguments;
+    int indexProduit;
+
+    if (param == null || param.toString().isEmpty) {
+      indexProduit = 0;
+    } else {
+      indexProduit = int.parse(param.toString());
+    }
+
+    //Produit productInfo = widget.produit;
+    Produit productInfo =AllProductData.Produits[indexProduit];
 
     return Scaffold(
       appBar: AppBar(title: Text(productInfo.title)),

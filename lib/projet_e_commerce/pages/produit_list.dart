@@ -25,7 +25,15 @@ class _MyWidgetState extends State<ListProduitPage> {
         children: List.generate(AllProductData.Produits.length, (index) {
           return InkWell(
             onTap: () {
-              ProduitDetailPage(produit:AllProductData.Produits[index]);
+              /**
+               * A. dans le constructeur DetailProduit
+               *     Index 
+               *     Produit
+               * B. Navigator: le parametre nommé Arguments
+               *     index , produit 
+               */
+              Navigator.pushNamed(context,"detailProduit",arguments: index);
+             // ProduitDetailPage(produit: AllProductData.Produits[index]);
             },
             child: WidgetProduit(p: AllProductData.Produits[index]),
           );
