@@ -17,7 +17,7 @@ class _BarreNavigationScreenState extends State<BarreNavigationScreen> {
   List<Widget> mesPages = [
     HomePage(),
     ListProduitPage(),
-    PanierPage(),
+    PanierScreen(),
     FavoritePage(),
     UserInfoPage(),
   ];

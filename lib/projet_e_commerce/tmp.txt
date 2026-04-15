@@ -5,3 +5,7 @@ STF N etat => setState
   - dans une Classe de type STF
   - Etat LOCAL
   probleme: Acces etat depuis d'autre page
+  Via des extension : StateManager :
+     Provider => TP
+    RiverPAd => Mini Projet 
+    BLOC 

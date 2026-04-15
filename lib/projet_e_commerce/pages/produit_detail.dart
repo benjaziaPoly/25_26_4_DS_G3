@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:projet/projet_e_commerce/data/list_produits.dart';
 import 'package:projet/projet_e_commerce/model/class_produit.dart';
+import 'package:projet/projet_e_commerce/model/class_produit_panier.dart';
+import 'package:projet/projet_e_commerce/provider/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 /**
  * Corriger le CR
@@ -31,6 +34,8 @@ class ProduitDetailPage extends StatefulWidget {
 class _MyWidgetState extends State<ProduitDetailPage> {
   @override
   Widget build(BuildContext context) {
+    final panier = Provider.of<PanierProvider>(context);
+
     final dynamic param = ModalRoute.of(context)!.settings.arguments;
     int indexProduit;
 
@@ -41,7 +46,7 @@ class _MyWidgetState extends State<ProduitDetailPage> {
     }
 
     //Produit productInfo = widget.produit;
-    Produit productInfo =AllProductData.Produits[indexProduit];
+    Produit productInfo = AllProductData.Produits[indexProduit];
 
     return Scaffold(
       appBar: AppBar(title: Text(productInfo.title)),
@@ -101,7 +106,18 @@ class _MyWidgetState extends State<ProduitDetailPage> {
                     Expanded(
                       flex: 2,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          panier.ajouterProduit(
+                            ProduitPanier(
+                              id: productInfo.id,
+                              title: productInfo.title,
+                              price: productInfo.price,
+                              imageUrl: productInfo.imageUrl,
+                              description: productInfo.description,
+                              quantite: 1,
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.pink,
                           foregroundColor: Colors.white,
