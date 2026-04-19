@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -55,6 +58,18 @@ class _MyWidgetState extends State<Menu> {
             title: Text("Profil"),
             onTap: () {
               Navigator.pushNamed(context, "profil");
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.exit_to_app),
+            title: Text("Quitter"),
+            onTap: () {
+              //Android : API <20 , >20
+              // Web
+              //IOS
+              //SystemNavigator.pop();
+              exit(0);
             },
           ),
         ],

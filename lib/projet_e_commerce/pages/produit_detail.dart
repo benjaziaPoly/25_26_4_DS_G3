@@ -117,6 +117,7 @@ class _MyWidgetState extends State<ProduitDetailPage> {
                               quantite: 1,
                             ),
                           );
+                          panier.saveCart();//save LocalStorage
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.pink,
